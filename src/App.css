@@ -1,0 +1,13 @@
+.container {
+  background-color: red;
+  height : 500px ;
+  width : 500px;
+}
+
+
+.card {
+  border : 1px solid black ;
+  border-radius: 3px;
+  padding : 4px;
+  margin : 4px;
+}
