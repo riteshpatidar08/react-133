@@ -26,3 +26,9 @@ export default EventsDetailPage;
 // distributed
 
 //NOTE dynamic routing  =>
+  // /events => all data 
+// /events/:id =>  single data 
+  //note nested routing 
+  // dashboard/services 
+  // dashboard/help 
+  // dashboard/settings 
