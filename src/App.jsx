@@ -105,13 +105,28 @@ import EventsPage from './pages/EventsPage';
 import EventsDetailPage from './pages/EventsDetailPage';
 
 function App() {
+  const eventsData = [
+    {
+      id: 1,
+      title: 'Morning Yoga',
+      location: 'Jaipur',
+      startData: '23-09-2026',
+    },
+    { id: 2, title: 'Marathon', location: 'Jaipur', startData: '24-09-2026' },
+    {
+      id: 3,
+      title: 'Diwali Party',
+      location: 'Jaipur',
+      startData: '6-11-2026',
+    },
+  ];
   return (
     <div>
       <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/events" element={<EventsPage />} />
-        <Route path="/events/:title/:id" element={<EventsDetailPage />} />
+        <Route path="/events" element={<EventsPage events = {eventsData} />} />
+        <Route path="/events/:title/:id" element={<EventsDetailPage events={eventsData} />} />
       </Routes>
     </div>
   );
