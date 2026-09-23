@@ -1,27 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function EventsPage() {
-  const eventsData = [
-    {
-      id: 1,
-      title: 'Morning Yoga',
-      location: 'Jaipur',
-      startData: '23-09-2026',
-    },
-    { id: 2, title: 'Marathon', location: 'Jaipur', startData: '24-09-2026' },
-    {
-      id: 3,
-      title: 'Diwali Party',
-      location: 'Jaipur',
-      startData: '6-11-2026',
-    },
-  ];
+function EventsPage({events}) {
+
   return (
     <div>
       <h2>Upcoming Events</h2>
       <div style={{ display: 'flex', gap: '10px' }}>
-        {eventsData.map((event) => (
+        {events.map((event) => (
           <Link
           to={`/events/${event.title}/${event.id}`}
             style={{ border: '2px solid blue', padding: '20px' }}
@@ -38,3 +24,6 @@ function EventsPage() {
 }
 
 export default EventsPage;
+
+
+//NOTE useParams() hook; /events/:tittle/:id   = 
