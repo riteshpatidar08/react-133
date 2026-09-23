@@ -103,6 +103,10 @@ import { Route, Routes } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import EventsPage from './pages/EventsPage';
 import EventsDetailPage from './pages/EventsDetailPage';
+import Dashboard from './pages/dashboard';
+import Setting from './pages/Setting';
+import Overview from './pages/Overview';
+import Integrations from './pages/Integrations';
 
 function App() {
   const eventsData = [
@@ -122,11 +126,20 @@ function App() {
   ];
   return (
     <div>
-      <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/events" element={<EventsPage events = {eventsData} />} />
-        <Route path="/events/:title/:id" element={<EventsDetailPage events={eventsData} />} />
+      
+        <Route path="/dashboard" element={<Dashboard />}>
+        <Route index element={<Overview/>}/>
+          <Route path="settings" element={<Setting />} />
+          <Route path="overview" element={<Overview />} />
+          <Route path="integration" element={<Integrations />} />
+        </Route>
+        <Route path="/events" element={<EventsPage events={eventsData} />} />
+        <Route
+          path="/events/:title/:id"
+          element={<EventsDetailPage events={eventsData} />}
+        />
       </Routes>
     </div>
   );
