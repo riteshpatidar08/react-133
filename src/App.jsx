@@ -128,7 +128,9 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Homepage />} />
+      
         <Route path="/dashboard" element={<Dashboard />}>
+        <Route index element={<Overview/>}/>
           <Route path="settings" element={<Setting />} />
           <Route path="overview" element={<Overview />} />
           <Route path="integration" element={<Integrations />} />
