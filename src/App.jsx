@@ -103,7 +103,9 @@ import { Route, Routes } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import EventsPage from './pages/EventsPage';
 import EventsDetailPage from './pages/EventsDetailPage';
-import Dashboard from './pages/dashboard';
+import MoviesPage from './pages/MoviesPage.jsx';
+import MovieDetail from './pages/MovieDetail.jsx';
+import Dashboard from './pages/Dashboard.jsx';
 import Setting from './pages/Setting';
 import Overview from './pages/Overview';
 import Integrations from './pages/Integrations';
@@ -124,8 +126,28 @@ function App() {
       startData: '6-11-2026',
     },
   ];
+
+   const moviesData = [
+    {
+      id: 1,
+      title: "Avengers",
+      description: "Superhero movie",
+    },
+    {
+      id: 2,
+      title: "Inception",
+      description: "Science fiction movie",
+    },
+    {
+      id: 3,
+      title: "Interstellar",
+      description: "Space adventure movie",
+    },
+  ];
   return (
     <div>
+      
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Homepage />} />
       
@@ -140,6 +162,13 @@ function App() {
           path="/events/:title/:id"
           element={<EventsDetailPage events={eventsData} />}
         />
+        <Route path="/movies" element={<MoviesPage movies={moviesData} />}/>
+
+        <Route
+          path="/movies/:title/:id"
+          element={<MovieDetail movies={moviesData} />}
+        />
+
       </Routes>
     </div>
   );

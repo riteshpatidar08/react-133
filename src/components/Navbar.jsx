@@ -33,6 +33,17 @@ const Navbar = () => {
         >
           Events
         </NavLink>
+
+        <NavLink
+  to="/movies"
+  style={({ isActive }) => ({
+    color: isActive ? "yellow" : "white",
+    textDecoration: "underline",
+  })}
+>
+  Movies
+</NavLink>
+
       </nav>
 
       <div className="nav-actions">
