@@ -107,6 +107,12 @@ import Dashboard from './pages/dashboard';
 import Setting from './pages/Setting';
 import Overview from './pages/Overview';
 import Integrations from './pages/Integrations';
+<<<<<<< HEAD
+=======
+import Notfound from './pages/Notfound';
+import ProtectedRoutes from './components/ProtectedRoutes';
+import Login from './pages/Login';
+>>>>>>> origin/master
 
 function App() {
   const eventsData = [
@@ -128,9 +134,19 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Homepage />} />
+<<<<<<< HEAD
       
         <Route path="/dashboard" element={<Dashboard />}>
         <Route index element={<Overview/>}/>
+=======
+
+<Route path='/login' element={<Login/>}/>
+
+
+<Route element={<ProtectedRoutes/>}>
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route index element={<Overview />} />
+>>>>>>> origin/master
           <Route path="settings" element={<Setting />} />
           <Route path="overview" element={<Overview />} />
           <Route path="integration" element={<Integrations />} />
@@ -140,9 +156,18 @@ function App() {
           path="/events/:title/:id"
           element={<EventsDetailPage events={eventsData} />}
         />
+<<<<<<< HEAD
+=======
+</Route>
+        <Route path="*" element={<Notfound />} />
+>>>>>>> origin/master
       </Routes>
     </div>
   );
 }
 
 export default App;
+
+// outlet ??
+//programmatic navigation => login => response success => navigate('homepage)
+//protected routes 
