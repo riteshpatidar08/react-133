@@ -110,6 +110,7 @@ import Integrations from './pages/Integrations';
 import Notfound from './pages/Notfound';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import Login from './pages/Login';
+import OpenRoutes from './components/OpenRoutes';
 
 function App() {
   const eventsData = [
@@ -130,24 +131,26 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Homepage />} />
-
-<Route path='/login' element={<Login/>}/>
-
-
-<Route element={<ProtectedRoutes/>}>
-        <Route path="/dashboard" element={<Dashboard />}>
-          <Route index element={<Overview />} />
-          <Route path="settings" element={<Setting />} />
-          <Route path="overview" element={<Overview />} />
-          <Route path="integration" element={<Integrations />} />
+        {/* open routes goes here  */}
+        <Route element={<OpenRoutes />}>
+          <Route path="/login" element={<Login />} />
         </Route>
-        <Route path="/events" element={<EventsPage events={eventsData} />} />
-        <Route
-          path="/events/:title/:id"
-          element={<EventsDetailPage events={eventsData} />}
-        />
-</Route>
+
+        {/* protected routes goes here  */}
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route index element={<Overview />} />
+            <Route path="settings" element={<Setting />} />
+            <Route path="overview" element={<Overview />} />
+            <Route path="integration" element={<Integrations />} />
+          </Route>
+          <Route path="/events" element={<EventsPage events={eventsData} />} />
+          <Route
+            path="/events/:title/:id"
+            element={<EventsDetailPage events={eventsData} />}
+          />
+        </Route>
         <Route path="*" element={<Notfound />} />
       </Routes>
     </div>
@@ -158,4 +161,4 @@ export default App;
 
 // outlet ??
 //programmatic navigation => login => response success => navigate('homepage)
-//protected routes 
+//protected routes
