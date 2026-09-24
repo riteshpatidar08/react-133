@@ -107,6 +107,9 @@ import Dashboard from './pages/dashboard';
 import Setting from './pages/Setting';
 import Overview from './pages/Overview';
 import Integrations from './pages/Integrations';
+import Notfound from './pages/Notfound';
+import ProtectedRoutes from './components/ProtectedRoutes';
+import Login from './pages/Login';
 
 function App() {
   const eventsData = [
@@ -128,9 +131,13 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Homepage />} />
-      
+
+<Route path='/login' element={<Login/>}/>
+
+
+<Route element={<ProtectedRoutes/>}>
         <Route path="/dashboard" element={<Dashboard />}>
-        <Route index element={<Overview/>}/>
+          <Route index element={<Overview />} />
           <Route path="settings" element={<Setting />} />
           <Route path="overview" element={<Overview />} />
           <Route path="integration" element={<Integrations />} />
@@ -140,9 +147,15 @@ function App() {
           path="/events/:title/:id"
           element={<EventsDetailPage events={eventsData} />}
         />
+</Route>
+        <Route path="*" element={<Notfound />} />
       </Routes>
     </div>
   );
 }
 
 export default App;
+
+// outlet ??
+//programmatic navigation => login => response success => navigate('homepage)
+//protected routes 
