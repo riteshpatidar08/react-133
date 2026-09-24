@@ -107,6 +107,7 @@ import Dashboard from './pages/dashboard';
 import Setting from './pages/Setting';
 import Overview from './pages/Overview';
 import Integrations from './pages/Integrations';
+import Contact from "./pages/Contact";
 
 function App() {
   const eventsData = [
@@ -140,6 +141,7 @@ function App() {
           path="/events/:title/:id"
           element={<EventsDetailPage events={eventsData} />}
         />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </div>
   );
