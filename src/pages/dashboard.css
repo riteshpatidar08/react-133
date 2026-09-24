@@ -49,3 +49,302 @@ a {
 
 }
 
+.overview {
+  width: 100%;
+  padding: 32px;
+  box-sizing: border-box;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+/* =========================
+   TOP CARDS
+========================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.stat-card {
+  min-height: 220px;
+  border: 1px solid #e7e7e7;
+  border-radius: 24px;
+  padding: 28px 32px;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  background: white;
+}
+
+.card-title {
+  color: #637083;
+  font-size: 16px;
+  letter-spacing: 1px;
+  line-height: 1.8;
+  margin: 0 0 12px;
+  max-width: 130px;
+}
+
+.stat-card h2 {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 500;
+  color: #12213a;
+}
+
+/* ICON */
+
+.card-icon {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: #6257f5;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  flex-shrink: 0;
+}
+
+/* SECOND CARD ICON */
+
+.stat-card:nth-child(2) .card-icon {
+  background: #14b8a6;
+}
+
+/* THIRD CARD ICON */
+
+.stat-card:nth-child(3) .card-icon {
+  background: #ff9900;
+}
+
+/* CHANGE */
+
+.change {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 30px;
+  font-size: 17px;
+}
+
+.change small {
+  color: #637083;
+  font-size: 15px;
+}
+
+.change.up {
+  color: #0dbfae;
+}
+
+.change.down {
+  color: #ff3b30;
+}
+
+/* PROGRESS */
+
+.progress-container {
+  width: 220px;
+  height: 6px;
+  background: #c7c4ff;
+  margin-top: 28px;
+  border-radius: 10px;
+}
+
+.progress {
+  width: 75%;
+  height: 100%;
+  background: #6257f5;
+  border-radius: 10px;
+}
+
+
+/* =========================
+   BOTTOM DASHBOARD
+========================= */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 28px;
+  margin-top: 28px;
+}
+
+/* SALES */
+
+.sales-box,
+.traffic-box {
+  border: 1px solid #e7e7e7;
+  border-radius: 24px;
+  padding: 32px;
+  min-height: 420px;
+  box-sizing: border-box;
+  background: white;
+}
+
+.box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box-header h2,
+.traffic-box h2 {
+  margin: 0;
+  color: #12213a;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.box-header button {
+  border: none;
+  background: transparent;
+  font-size: 17px;
+  color: #12213a;
+  cursor: pointer;
+}
+
+/* =========================
+   BAR CHART
+========================= */
+
+.chart {
+  height: 300px;
+  display: flex;
+  margin-top: 40px;
+}
+
+.y-axis {
+  width: 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #637083;
+  font-size: 13px;
+  padding-bottom: 20px;
+}
+
+.bars {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 18px;
+  border-bottom: 1px solid #ddd;
+  padding: 0 20px;
+}
+
+.bar {
+  width: 45px;
+  background: #6257f5;
+  min-height: 20px;
+}
+
+
+/* =========================
+   TRAFFIC SOURCE
+========================= */
+
+.traffic-box {
+  overflow: hidden;
+}
+
+.donut {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #6257f5 0deg 280deg,
+    #ff9900 280deg 350deg,
+    #14b8a6 350deg 360deg
+  );
+
+  margin: 55px auto 30px;
+
+  position: relative;
+}
+
+.donut::after {
+  content: "";
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  background: white;
+  border-radius: 50%;
+  top: 55px;
+  left: 55px;
+}
+
+.traffic-info {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  font-size: 14px;
+  color: #637083;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.purple {
+  background: #6257f5;
+}
+
+.orange {
+  background: #ff9900;
+}
+
+.green {
+  background: #14b8a6;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1200px) {
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .overview {
+    padding: 15px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    min-height: 190px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bars {
+    gap: 8px;
+  }
+
+  .bar {
+    width: 25px;
+  }
+}
