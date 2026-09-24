@@ -131,16 +131,14 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        {/* open routes goes here  */}
+        <Route element={<OpenRoutes />}>
+          <Route path="/login" element={<Login />} />
+        </Route>
 
-{/* open routes goes here  */}
-<Route element={<OpenRoutes/>}>
-<Route path="/login" element={<Login />} />
-</Route>
-       
-{/* protected routes goes here  */}
+        {/* protected routes goes here  */}
         <Route element={<ProtectedRoutes />}>
-
+          <Route path="/" element={<Homepage />} />
           <Route path="/dashboard" element={<Dashboard />}>
             <Route index element={<Overview />} />
             <Route path="settings" element={<Setting />} />
