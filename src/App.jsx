@@ -94,25 +94,28 @@
 //     </div>
 //   );
 // }
-
 import React from 'react';
+
 import Navbar from './components/Navbar';
 import InputSearch from './components/InputSearch';
 import MovieGrid from './components/MovieGrid';
+
 import { Route, Routes } from 'react-router-dom';
+
 import Homepage from './pages/Homepage';
 import EventsPage from './pages/EventsPage';
 import EventsDetailPage from './pages/EventsDetailPage';
+
 import Dashboard from './pages/dashboard';
 import Setting from './pages/Setting';
 import Overview from './pages/Overview';
 import Integrations from './pages/Integrations';
-<<<<<<< HEAD
-=======
+
 import Notfound from './pages/Notfound';
+
 import ProtectedRoutes from './components/ProtectedRoutes';
+import OpenRoutes from './components/OpenRoutes';
 import Login from './pages/Login';
->>>>>>> origin/master
 
 function App() {
   const eventsData = [
@@ -122,7 +125,12 @@ function App() {
       location: 'Jaipur',
       startData: '23-09-2026',
     },
-    { id: 2, title: 'Marathon', location: 'Jaipur', startData: '24-09-2026' },
+    {
+      id: 2,
+      title: 'Marathon',
+      location: 'Jaipur',
+      startData: '24-09-2026',
+    },
     {
       id: 3,
       title: 'Diwali Party',
@@ -130,37 +138,43 @@ function App() {
       startData: '6-11-2026',
     },
   ];
+
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Homepage />} />
-<<<<<<< HEAD
-      
-        <Route path="/dashboard" element={<Dashboard />}>
-        <Route index element={<Overview/>}/>
-=======
 
-<Route path='/login' element={<Login/>}/>
-
-
-<Route element={<ProtectedRoutes/>}>
-        <Route path="/dashboard" element={<Dashboard />}>
-          <Route index element={<Overview />} />
->>>>>>> origin/master
-          <Route path="settings" element={<Setting />} />
-          <Route path="overview" element={<Overview />} />
-          <Route path="integration" element={<Integrations />} />
+        {/* Open Routes */}
+        <Route element={<OpenRoutes />}>
+          <Route path="/login" element={<Login />} />
         </Route>
-        <Route path="/events" element={<EventsPage events={eventsData} />} />
-        <Route
-          path="/events/:title/:id"
-          element={<EventsDetailPage events={eventsData} />}
-        />
-<<<<<<< HEAD
-=======
-</Route>
+
+        {/* Protected Routes */}
+        <Route element={<ProtectedRoutes />}>
+
+          <Route path="/" element={<Homepage />} />
+
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route index element={<Overview />} />
+            <Route path="settings" element={<Setting />} />
+            <Route path="overview" element={<Overview />} />
+            <Route path="integration" element={<Integrations />} />
+          </Route>
+
+          <Route
+            path="/events"
+            element={<EventsPage events={eventsData} />}
+          />
+
+          <Route
+            path="/events/:title/:id"
+            element={<EventsDetailPage events={eventsData} />}
+          />
+
+        </Route>
+
+        {/* 404 Page */}
         <Route path="*" element={<Notfound />} />
->>>>>>> origin/master
+
       </Routes>
     </div>
   );
@@ -169,5 +183,7 @@ function App() {
 export default App;
 
 // outlet ??
-//programmatic navigation => login => response success => navigate('homepage)
-//protected routes 
+
+// programmatic navigation => login => response success => navigate('homepage')
+
+// protected routes
