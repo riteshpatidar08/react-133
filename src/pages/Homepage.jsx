@@ -22,10 +22,17 @@ function Homepage() {
 
   return <div>
 
-    <button onClick={()=>navigate(-1)}>GO back</button>
+    <button className="text-sky-500" onClick={()=>navigate(-1)}>GO back</button>
   </div>;
 }
 
 export default Homepage;
 
 
+
+
+// color properties 
+// background color 
+// padding margin , border border radius 
+// display properties 
+// position properties flex ,grid , responsive antimation
