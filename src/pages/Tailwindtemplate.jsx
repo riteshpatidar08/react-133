@@ -3,14 +3,13 @@ import React from "react";
 function TailwindTemplate() {
   return (
     <div>
-      {/* Header */}
-      <header>
-        <h1>TechNova</h1>
-        <p>Build better products with modern web technologies.</p>
-      </header>
-
-      {/* Navigation */}
-      <nav>
+      {/* Header */} 
+      <header className="bg-black border-b border-zinc-800 sticky top-0  justify-around h-20 items-center flex">
+        <div className="flex items-center gap-5 justify-center">
+        <h1 className="text-white text-3xl font-bold">heroui</h1>
+        <p className="text-gray-300 px-2 py-1 rounded-xl bg-zinc-700 text-[10px] ">Build better</p>
+        </div>
+        <nav className="flex gap-4 text-sm font-medium">
         <a href="/">Home</a>
         <a href="/">Products</a>
         <a href="/">Services</a>
@@ -18,12 +17,18 @@ function TailwindTemplate() {
         <a href="/">Contact</a>
       </nav>
 
+      <button className="text-gray-400 border border-gray-700 rounded-4xl px-10 py-2">Login</button>
+      </header>
+
+      {/* Navigation */}
+     
+
       <main>
         {/* Hero Section */}
-        <section>
-          <span>Welcome to TechNova</span>
-          <h1>Build Fast. Build Beautiful. Build Better.</h1>
-          <p>
+        <section className="bg-black h-screen">
+          <span className='text-white text-2xl  tracking-wide font-semibold'>Welcome to <span className="text-5xl font-bold text-pink-400">heroui</span></span>
+          <h1 className="text-white font-medium text-4xl">Build Fast. Build Beautiful. Build Better.</h1>
+          <p className="text-sm font-medium text-zinc-600">
             We help startups and businesses create modern, scalable,
             high-performance digital products that customers love.
           </p>
