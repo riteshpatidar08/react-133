@@ -103,18 +103,62 @@ import { Route, Routes } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import EventsPage from './pages/EventsPage';
 import EventsDetailPage from './pages/EventsDetailPage';
+import Dashboard from './pages/dashboard';
+import Setting from './pages/Setting';
+import Overview from './pages/Overview';
+import Integrations from './pages/Integrations';
+import Notfound from './pages/Notfound';
+import ProtectedRoutes from './components/ProtectedRoutes';
+import Login from './pages/Login';
+import OpenRoutes from './components/OpenRoutes';
 
 function App() {
+  const eventsData = [
+    {
+      id: 1,
+      title: 'Morning Yoga',
+      location: 'Jaipur',
+      startData: '23-09-2026',
+    },
+    { id: 2, title: 'Marathon', location: 'Jaipur', startData: '24-09-2026' },
+    {
+      id: 3,
+      title: 'Diwali Party',
+      location: 'Jaipur',
+      startData: '6-11-2026',
+    },
+  ];
   return (
     <div>
-      <Navbar />
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/events" element={<EventsPage />} />
-        <Route path="/events/:title/:id" element={<EventsDetailPage />} />
+        {/* open routes goes here  */}
+        <Route element={<OpenRoutes />}>
+          <Route path="/login" element={<Login />} />
+        </Route>
+
+        {/* protected routes goes here  */}
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route index element={<Overview />} />
+            <Route path="settings" element={<Setting />} />
+            <Route path="overview" element={<Overview />} />
+            <Route path="integration" element={<Integrations />} />
+          </Route>
+          <Route path="/events" element={<EventsPage events={eventsData} />} />
+          <Route
+            path="/events/:title/:id"
+            element={<EventsDetailPage events={eventsData} />}
+          />
+        </Route>
+        <Route path="*" element={<Notfound />} />
       </Routes>
     </div>
   );
 }
 
 export default App;
+
+// outlet ??
+//programmatic navigation => login => response success => navigate('homepage)
+//protected routes
