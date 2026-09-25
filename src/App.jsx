@@ -94,72 +94,72 @@
 //     </div>
 //   );
 // }
-import React from 'react';
 
-import Navbar from './components/Navbar';
-import InputSearch from './components/InputSearch';
-import MovieGrid from './components/MovieGrid';
+import React from "react";
 
-import { Route, Routes } from 'react-router-dom';
+import Navbar from "./components/Navbar";
+import InputSearch from "./components/InputSearch";
+import MovieGrid from "./components/MovieGrid";
 
-import Homepage from './pages/Homepage';
-import EventsPage from './pages/EventsPage';
-import EventsDetailPage from './pages/EventsDetailPage';
+import { Route, Routes } from "react-router-dom";
 
-import Dashboard from './pages/dashboard';
-import Setting from './pages/Setting';
-import Overview from './pages/Overview';
-import Integrations from './pages/Integrations';
+import Homepage from "./pages/Homepage";
+import EventsPage from "./pages/EventsPage";
+import EventsDetailPage from "./pages/EventsDetailPage";
 
-import Notfound from './pages/Notfound';
+import Dashboard from "./pages/dashboard";
+import Setting from "./pages/Setting";
+import Overview from "./pages/Overview";
+import Integrations from "./pages/Integrations";
 
-import ProtectedRoutes from './components/ProtectedRoutes';
-import OpenRoutes from './components/OpenRoutes';
-<<<<<<< HEAD
-import Login from './pages/Login';
-=======
-import Tailwindtemplate from './pages/Tailwindtemplate';
->>>>>>> origin/master
+import Notfound from "./pages/Notfound";
+
+import ProtectedRoutes from "./components/ProtectedRoutes";
+import OpenRoutes from "./components/OpenRoutes";
+
+import Login from "./pages/Login";
+import Tailwindtemplate from "./pages/Tailwindtemplate";
 
 function App() {
   const eventsData = [
     {
       id: 1,
-      title: 'Morning Yoga',
-      location: 'Jaipur',
-      startData: '23-09-2026',
+      title: "Morning Yoga",
+      location: "Jaipur",
+      startData: "23-09-2026",
     },
     {
       id: 2,
-      title: 'Marathon',
-      location: 'Jaipur',
-      startData: '24-09-2026',
+      title: "Marathon",
+      location: "Jaipur",
+      startData: "24-09-2026",
     },
     {
       id: 3,
-      title: 'Diwali Party',
-      location: 'Jaipur',
-      startData: '6-11-2026',
+      title: "Diwali Party",
+      location: "Jaipur",
+      startData: "6-11-2026",
     },
   ];
 
   return (
     <div>
       <Routes>
-<<<<<<< HEAD
 
         {/* Open Routes */}
-=======
-        {/* open routes goes here  */}
-        <Route path='/tailwind' element={<Tailwindtemplate/>}/>
->>>>>>> origin/master
+
+        <Route
+          path="/tailwind"
+          element={<Tailwindtemplate />}
+        />
+
         <Route element={<OpenRoutes />}>
           <Route path="/login" element={<Login />} />
         </Route>
 
         {/* Protected Routes */}
-        <Route element={<ProtectedRoutes />}>
 
+        <Route element={<ProtectedRoutes />}>
           <Route path="/" element={<Homepage />} />
 
           <Route path="/dashboard" element={<Dashboard />}>
@@ -178,10 +178,10 @@ function App() {
             path="/events/:title/:id"
             element={<EventsDetailPage events={eventsData} />}
           />
-
         </Route>
 
         {/* 404 Page */}
+
         <Route path="*" element={<Notfound />} />
 
       </Routes>
@@ -191,15 +191,3 @@ function App() {
 
 export default App;
 
-// outlet ??
-<<<<<<< HEAD
-
-// programmatic navigation => login => response success => navigate('homepage')
-
-// protected routes
-=======
-//programmatic navigation => login => response success => navigate('homepage)
-//protected routes
-
-//NOTE note useref , controlled ,uncontrolled , forwared ref , useReudcer , use clal , use memo , useLayout , use action   
->>>>>>> origin/master
