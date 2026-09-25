@@ -3,67 +3,130 @@ import React from "react";
 function TailwindTemplate() {
   return (
     <div>
-      {/* Header */}
-      <header>
-        <h1>TechNova</h1>
-        <p>Build better products with modern web technologies.</p>
+      {/* Header */} 
+      <header className="bg-black border-b border-zinc-800 sticky top-0  justify-around h-20 items-center flex px-10">
+        <div className="flex items-center gap-5 justify-center">
+        <h1 className="text-white text-3xl font-bold">heroui</h1>
+        <p className="text-gray-300 px-2 py-1 rounded-xl bg-zinc-700 text-[10px] ">Build better</p>
+        </div>
+        <nav className="flex gap-6 text-sm font-medium">
+  <a href="/" className="text-gray-300 hover:text-white transition">
+    Home
+  </a>
+
+  <a href="/" className="text-gray-300 hover:text-white transition">
+    Products
+  </a>
+
+  <a href="/" className="text-gray-300 hover:text-white transition">
+    Services
+  </a>
+
+  <a href="/" className="text-gray-300 hover:text-white transition">
+    About Us
+  </a>
+
+  <a href="/" className="text-gray-300 hover:text-white transition">
+    Contact
+  </a>
+</nav>
+     <button className="text-gray-400 border border-gray-700 rounded-full px-10 py-2 hover:bg-zinc-800 hover:text-white transition">
+  Login
+</button>
       </header>
 
       {/* Navigation */}
-      <nav>
-        <a href="/">Home</a>
-        <a href="/">Products</a>
-        <a href="/">Services</a>
-        <a href="/">About Us</a>
-        <a href="/">Contact</a>
-      </nav>
+     
 
       <main>
         {/* Hero Section */}
-        <section>
-          <span>Welcome to TechNova</span>
-          <h1>Build Fast. Build Beautiful. Build Better.</h1>
-          <p>
-            We help startups and businesses create modern, scalable,
-            high-performance digital products that customers love.
-          </p>
+        <section className="bg-black min-h-screen px-10 py-24 flex flex-col justify-center items-center text-center">
 
-          <button>Get Started</button>
-          <button>View Our Work</button>
-        </section>
+  <span className="text-white text-2xl tracking-wide font-semibold">
+    Welcome to{" "}
+    <span className="text-5xl font-bold text-pink-400">
+      heroui
+    </span>
+  </span>
 
+  <h1 className="text-white font-medium text-4xl mt-6">
+    Build Fast. Build Beautiful. Build Better.
+  </h1>
+
+  <p className="text-sm font-medium text-zinc-400 max-w-2xl mt-5 leading-7">
+    We help startups and businesses create modern, scalable,
+    high-performance digital products that customers love.
+  </p>
+
+  <div className="flex gap-4 mt-8">
+    <button className="bg-pink-500 text-white px-6 py-3 rounded-lg hover:bg-pink-600 transition">
+      Get Started
+    </button>
+
+    <button className="border border-zinc-700 text-white px-6 py-3 rounded-lg hover:bg-zinc-800 transition">
+      View Our Work
+    </button>
+  </div>
+
+</section>
         {/* Typography */}
-        <section>
-          <h2>Typography</h2>
+        {/* Typography */}
+<section className="bg-zinc-950 text-white px-10 py-16">
 
-          <h1>Heading One</h1>
-          <h2>Heading Two</h2>
-          <h3>Heading Three</h3>
-          <h4>Heading Four</h4>
-          <h5>Heading Five</h5>
-          <h6>Heading Six</h6>
+  <h2 className="text-4xl font-bold mb-10">
+    Typography
+  </h2>
 
-          <p>
-            Technology is transforming the way businesses operate. Modern
-            applications need to be fast, accessible, responsive, and easy
-            to use.
-          </p>
+  <h1 className="text-5xl font-bold mb-4">
+    Heading One
+  </h1>
 
-          <strong>Important information appears here.</strong>
+  <h2 className="text-4xl font-semibold mb-4">
+    Heading Two
+  </h2>
 
-          <br />
+  <h3 className="text-3xl font-semibold mb-4">
+    Heading Three
+  </h3>
 
-          <em>
-            Great design is not just what something looks like, but how it
-            works.
-          </em>
+  <h4 className="text-2xl font-semibold mb-4">
+    Heading Four
+  </h4>
 
-          <blockquote>
-            "The best way to predict the future is to create it."
-          </blockquote>
+  <h5 className="text-xl font-semibold mb-4">
+    Heading Five
+  </h5>
 
-          <code>npm install react</code>
-        </section>
+  <h6 className="text-lg font-semibold mb-6">
+    Heading Six
+  </h6>
+
+  <p className="text-gray-400 text-base leading-7 max-w-3xl mb-6">
+    Technology is transforming the way businesses operate. Modern
+    applications need to be fast, accessible, responsive, and easy
+    to use.
+  </p>
+
+  <strong className="text-white font-bold block mb-6">
+    Important information appears here.
+  </strong>
+
+  <br />
+
+  <em className="text-gray-400 italic block mb-6">
+    Great design is not just what something looks like, but how it
+    works.
+  </em>
+
+  <blockquote className="border-l-4 border-pink-500 pl-5 text-gray-300 italic mb-6">
+    "The best way to predict the future is to create it."
+  </blockquote>
+
+  <code className="bg-zinc-800 text-pink-400 px-3 py-2 rounded-lg">
+    npm install react
+  </code>
+
+</section>
 
         {/* Colors */}
         <section>
