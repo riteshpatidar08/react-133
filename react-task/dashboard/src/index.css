@@ -870,3 +870,101 @@ body {
 .save-btn:hover {
   background: #5048e5;
 }   */
+
+/* =================================
+   GLOBAL DARK MODE
+================================= */
+
+html.dark {
+  background: #0f172a;
+}
+
+html.dark body {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+
+/* Main page background */
+
+html.dark .bg-slate-50 {
+  background-color: #0f172a !important;
+}
+
+
+/* White cards */
+
+html.dark .bg-white {
+  background-color: #1e293b !important;
+}
+
+
+/* Text */
+
+html.dark .text-slate-900 {
+  color: #f1f5f9 !important;
+}
+
+html.dark .text-slate-800 {
+  color: #e2e8f0 !important;
+}
+
+html.dark .text-slate-700 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+
+/* Borders */
+
+html.dark .border-slate-200 {
+  border-color: #334155 !important;
+}
+
+html.dark .border-slate-100 {
+  border-color: #334155 !important;
+}
+
+
+/* Inputs */
+
+html.dark input,
+html.dark select,
+html.dark textarea {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  border-color: #334155;
+}
+
+
+/* Input placeholder */
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #64748b;
+}
+
+
+/* Hover */
+
+html.dark .hover\:bg-slate-50:hover {
+  background-color: #334155 !important;
+}
+
+html.dark .hover\:bg-slate-100:hover {
+  background-color: #334155 !important;
+}
+
+
+/* Divide */
+
+html.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #334155 !important;
+}

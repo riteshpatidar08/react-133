@@ -25,7 +25,7 @@ function Overview() {
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+      <div className="grid w-full min-w-0 grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
 
         <StatCard
           title="BUDGET"
@@ -85,8 +85,7 @@ function Overview() {
       </div>
 
       {/* Charts */}
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-5 mt-6">
-
+      <div className="grid w-full min-w-0 grid-cols-1 gap-6 xl:grid-cols-[2fr_1fr]">
         {/* Sales - 2/3 Width */}
         <div className="xl:col-span-2 min-w-0">
           <SalesChart />
