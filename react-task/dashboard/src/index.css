@@ -1,4 +1,5 @@
-* {
+@import "tailwindcss";
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -513,12 +514,12 @@ body {
   }
 
 }
-
+*/
 /* =========================
    CUSTOMERS PAGE
 ========================= */
 
-.customers-page {
+/* .customers-page {
   width: 100%;
 }
 
@@ -557,7 +558,7 @@ body {
 
 /* Search */
 
-.customer-search {
+/* .customer-search {
   width: 100%;
   height: 50px;
   background: white;
@@ -584,7 +585,7 @@ body {
 
 /* Table */
 
-.customers-table-card {
+/* .customers-table-card {
   background: white;
   border: 1px solid #e5e7eb;
   border-radius: 15px;
@@ -614,11 +615,11 @@ body {
 
 .customers-table-card tr:last-child td {
   border-bottom: none;
-}
+} */
 
 /* Customer name */
 
-.customer-name {
+/* .customer-name {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -638,11 +639,11 @@ body {
   justify-content: center;
 
   font-weight: 600;
-}
+} */
 
 /* Status */
 
-.status {
+/* .status {
   padding: 5px 10px;
   border-radius: 20px;
   font-size: 12px;
@@ -661,7 +662,7 @@ body {
 
 /* Buttons */
 
-.action-btn {
+/* .action-btn {
   border: none;
   background: #eef2ff;
   color: #635bff;
@@ -683,19 +684,19 @@ body {
 .action-btn:hover,
 .delete-btn:hover {
   opacity: 0.8;
-}
+} */ 
 
 /* Empty */
 
-.no-customers {
+/* .no-customers {
   text-align: center;
   padding: 40px;
   color: #64748b;
-}
+} */
 
 /* Mobile */
 
-@media (max-width: 700px) {
+/* @media (max-width: 700px) {
 
   .customers-header {
     flex-direction: column;
@@ -707,12 +708,12 @@ body {
     width: 100%;
   }
 
-}
+} */
 /* =========================
    CUSTOMER MODAL
 ========================= */
 
-.modal-overlay {
+/* .modal-overlay {
   position: fixed;
   inset: 0;
 
@@ -776,7 +777,7 @@ body {
 
 /* Form */
 
-.customer-form {
+/* .customer-form {
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -818,12 +819,12 @@ body {
   border-color: #635bff;
 
   box-shadow: 0 0 0 2px rgba(99, 91, 255, 0.1);
-}
+} */
 
 
 /* Form buttons */
 
-.form-buttons {
+/* .form-buttons {
   display: flex;
   justify-content: flex-end;
 
@@ -868,4 +869,4 @@ body {
 
 .save-btn:hover {
   background: #5048e5;
-}
+}   */

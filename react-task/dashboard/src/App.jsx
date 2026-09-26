@@ -14,48 +14,58 @@ function App() {
   return (
     <BrowserRouter>
 
-      <Sidebar />
+      {/* Main Layout */}
+      <div className="flex min-h-screen bg-gray-50">
 
-      <main className="main-content">
+        {/* Sidebar */}
+        <Sidebar />
 
-        <Navbar />
+        {/* Right Side */}
+        <main className="flex-1 min-w-0">
 
-        <div className="page-content">
+          <Navbar />
 
-          <Routes>
+          <div className="page-content">
 
-            <Route path="/" element={<Overview />} />
+            <Routes>
 
-            <Route
-              path="/customers"
-              element={<Customers />}
-            />
+              <Route
+                path="/"
+                element={<Overview />}
+              />
 
-            <Route
-              path="/integrations"
-              element={<Integrations />}
-            />
+              <Route
+                path="/customers"
+                element={<Customers />}
+              />
 
-            <Route
-              path="/settings"
-              element={<Settings />}
-            />
+              <Route
+                path="/integrations"
+                element={<Integrations />}
+              />
 
-            <Route
-              path="/account"
-              element={<Account />}
-            />
+              <Route
+                path="/settings"
+                element={<Settings />}
+              />
 
-            <Route
-              path="*"
-              element={<ErrorPage />}
-            />
+              <Route
+                path="/account"
+                element={<Account />}
+              />
 
-          </Routes>
+              <Route
+                path="*"
+                element={<ErrorPage />}
+              />
 
-        </div>
+            </Routes>
 
-      </main>
+          </div>
+
+        </main>
+
+      </div>
 
     </BrowserRouter>
   );

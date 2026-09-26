@@ -11,10 +11,21 @@ import TrafficChart from "../components/TrafficChart";
 
 function Overview() {
   return (
-    <div className="overview">
+    <div className="w-full min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
+
+      {/* Page Header */}
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold tracking-tight text-gray-900">
+          Overview
+        </h1>
+
+        <p className="mt-1 text-sm text-gray-500">
+          Here's what's happening with your workspace today.
+        </p>
+      </div>
 
       {/* Stats Cards */}
-      <div className="stats-grid">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
 
         <StatCard
           title="BUDGET"
@@ -74,11 +85,17 @@ function Overview() {
       </div>
 
       {/* Charts */}
-      <div className="dashboard-charts">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-5 mt-6">
 
-        <SalesChart />
+        {/* Sales - 2/3 Width */}
+        <div className="xl:col-span-2 min-w-0">
+          <SalesChart />
+        </div>
 
-        <TrafficChart />
+        {/* Traffic - 1/3 Width */}
+        <div className="xl:col-span-1 min-w-0">
+          <TrafficChart />
+        </div>
 
       </div>
 

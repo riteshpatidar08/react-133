@@ -29,21 +29,28 @@ const COLORS = [
 
 function TrafficChart() {
   return (
-    <div className="traffic-card">
+    <div className="w-full bg-white border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
 
       {/* Header */}
-      <div className="traffic-header">
-        <h2>Traffic source</h2>
+      <div className="flex items-center justify-between mb-2">
+        <div>
+          <h2 className="text-lg font-semibold text-gray-900">
+            Traffic source
+          </h2>
+
+          <p className="text-sm text-gray-500 mt-1">
+            Visitors by device
+          </p>
+        </div>
       </div>
 
       {/* Donut Chart */}
-      <div className="traffic-chart">
+      <div className="w-full h-[250px]">
 
         <ResponsiveContainer
           width="100%"
           height="100%"
         >
-
           <PieChart>
 
             <Pie
@@ -52,9 +59,9 @@ function TrafficChart() {
               nameKey="name"
               cx="50%"
               cy="50%"
-              innerRadius={75}
-              outerRadius={110}
-              paddingAngle={2}
+              innerRadius={65}
+              outerRadius={95}
+              paddingAngle={3}
               stroke="none"
             >
 
@@ -67,40 +74,48 @@ function TrafficChart() {
 
             </Pie>
 
-            <Tooltip />
+            <Tooltip
+              formatter={(value) => `${value}%`}
+              contentStyle={{
+                borderRadius: "10px",
+                border: "1px solid #e5e7eb",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+              }}
+            />
 
           </PieChart>
-
         </ResponsiveContainer>
 
       </div>
 
       {/* Traffic Details */}
-      <div className="traffic-details">
+      <div className="mt-2 space-y-3">
 
         {trafficData.map((item, index) => (
 
           <div
-            className="traffic-item"
+            className="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-gray-50 transition"
             key={item.name}
           >
 
-            <div className="traffic-name">
+            {/* Name */}
+            <div className="flex items-center gap-3">
 
               <span
-                className="traffic-dot"
+                className="w-3 h-3 rounded-full"
                 style={{
                   backgroundColor: COLORS[index],
                 }}
               ></span>
 
-              <span>
+              <span className="text-sm font-medium text-gray-600">
                 {item.name}
               </span>
 
             </div>
 
-            <strong>
+            {/* Percentage */}
+            <strong className="text-sm font-semibold text-gray-900">
               {item.value}%
             </strong>
 

@@ -1,5 +1,5 @@
 import { Search, X } from "lucide-react";
-import { useState ,useEffect} from "react";
+import { useState, useEffect } from "react";
 
 const customersData = [
   {
@@ -41,26 +41,22 @@ const customersData = [
 
 function Customers() {
   const [customers, setCustomers] = useState(() => {
-  const savedCustomers = localStorage.getItem("customers");
+    const savedCustomers = localStorage.getItem("customers");
 
-  return savedCustomers
-    ? JSON.parse(savedCustomers)
-    : customersData;
-});
+    return savedCustomers
+      ? JSON.parse(savedCustomers)
+      : customersData;
+  });
 
-useEffect(() => {
-  localStorage.setItem(
-    "customers",
-    JSON.stringify(customers)
-  );
-}, [customers]);
+  useEffect(() => {
+    localStorage.setItem(
+      "customers",
+      JSON.stringify(customers)
+    );
+  }, [customers]);
 
   const [search, setSearch] = useState("");
-
   const [showModal, setShowModal] = useState(false);
-
-  // null = Add mode
-  // customer object = Edit mode
   const [editingCustomer, setEditingCustomer] = useState(null);
 
   const [formData, setFormData] = useState({
@@ -113,8 +109,6 @@ useEffect(() => {
     e.preventDefault();
 
     if (editingCustomer) {
-      // UPDATE CUSTOMER
-
       setCustomers(
         customers.map((customer) =>
           customer.id === editingCustomer.id
@@ -129,8 +123,6 @@ useEffect(() => {
         )
       );
     } else {
-      // ADD CUSTOMER
-
       const newCustomer = {
         id: Date.now(),
         name: formData.name,
@@ -190,138 +182,214 @@ useEffect(() => {
   );
 
   return (
-    <div className="customers-page">
+    <div className="w-full min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
 
       {/* HEADER */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
 
-      <div className="customers-header">
         <div>
-          <h1>Customers</h1>
-          <p>Manage your customers</p>
+          <h1 className="text-2xl font-bold tracking-tight text-gray-900">
+            Customers
+          </h1>
+
+          <p className="mt-1 text-sm text-gray-500">
+            Manage your customers
+          </p>
         </div>
 
         <button
-          className="add-customer-btn"
           onClick={handleOpenAdd}
+          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-black text-white text-sm font-semibold hover:bg-gray-800 active:scale-95 transition-all shadow-sm"
         >
-          + Add Customer
+          <span className="text-lg leading-none">
+            +
+          </span>
+
+          Add Customer
         </button>
+
       </div>
 
 
       {/* SEARCH */}
+      <div className="w-full max-w-md mb-6">
 
-      <div className="customer-search">
+        <div className="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-4 py-2.5 shadow-sm focus-within:border-gray-400 focus-within:ring-2 focus-within:ring-gray-100 transition">
 
-        <Search size={20} />
+          <Search
+            size={20}
+            className="text-gray-400 shrink-0"
+          />
 
-        <input
-          type="text"
-          placeholder="Search customers..."
-          value={search}
-          onChange={(e) =>
-            setSearch(e.target.value)
-          }
-        />
+          <input
+            type="text"
+            placeholder="Search customers..."
+            value={search}
+            onChange={(e) =>
+              setSearch(e.target.value)
+            }
+            className="w-full bg-transparent outline-none text-sm text-gray-700 placeholder:text-gray-400"
+          />
+
+        </div>
 
       </div>
 
 
       {/* TABLE */}
+      <div className="w-full bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
 
-      <div className="customers-table-card">
+        {/* Responsive Table */}
+        <div className="overflow-x-auto">
 
-        <table>
+          <table className="w-full min-w-[800px]">
 
-          <thead>
-            <tr>
-              <th>NAME</th>
-              <th>EMAIL</th>
-              <th>LOCATION</th>
-              <th>STATUS</th>
-              <th>ACTION</th>
-            </tr>
-          </thead>
+            <thead>
+              <tr className="bg-gray-50 border-b border-gray-200">
 
-          <tbody>
+                <th className="px-6 py-4 text-left text-xs font-semibold tracking-wider text-gray-500">
+                  NAME
+                </th>
 
-            {filteredCustomers.map(
-              (customer) => (
+                <th className="px-6 py-4 text-left text-xs font-semibold tracking-wider text-gray-500">
+                  EMAIL
+                </th>
 
-                <tr key={customer.id}>
+                <th className="px-6 py-4 text-left text-xs font-semibold tracking-wider text-gray-500">
+                  LOCATION
+                </th>
 
-                  <td>
-                    <div className="customer-name">
+                <th className="px-6 py-4 text-left text-xs font-semibold tracking-wider text-gray-500">
+                  STATUS
+                </th>
 
-                      <div className="customer-avatar">
-                        {customer.name.charAt(0)}
+                <th className="px-6 py-4 text-left text-xs font-semibold tracking-wider text-gray-500">
+                  ACTION
+                </th>
+
+              </tr>
+            </thead>
+
+            <tbody className="divide-y divide-gray-100">
+
+              {filteredCustomers.map(
+                (customer) => (
+
+                  <tr
+                    key={customer.id}
+                    className="hover:bg-gray-50 transition-colors"
+                  >
+
+                    {/* NAME */}
+                    <td className="px-6 py-4">
+
+                      <div className="flex items-center gap-3">
+
+                        <div className="w-10 h-10 rounded-full bg-gray-900 text-white flex items-center justify-center text-sm font-semibold shrink-0">
+                          {customer.name.charAt(0)}
+                        </div>
+
+                        <span className="text-sm font-semibold text-gray-900">
+                          {customer.name}
+                        </span>
+
                       </div>
 
-                      <span>
-                        {customer.name}
+                    </td>
+
+                    {/* EMAIL */}
+                    <td className="px-6 py-4 text-sm text-gray-600">
+                      {customer.email}
+                    </td>
+
+                    {/* LOCATION */}
+                    <td className="px-6 py-4 text-sm text-gray-600">
+                      {customer.location}
+                    </td>
+
+                    {/* STATUS */}
+                    <td className="px-6 py-4">
+
+                      <span
+                        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold ${
+                          customer.status === "Active"
+                            ? "bg-emerald-50 text-emerald-700"
+                            : "bg-gray-100 text-gray-500"
+                        }`}
+                      >
+
+                        <span
+                          className={`w-1.5 h-1.5 rounded-full ${
+                            customer.status === "Active"
+                              ? "bg-emerald-500"
+                              : "bg-gray-400"
+                          }`}
+                        ></span>
+
+                        {customer.status}
+
                       </span>
 
-                    </div>
-                  </td>
+                    </td>
 
-                  <td>
-                    {customer.email}
-                  </td>
+                    {/* ACTION */}
+                    <td className="px-6 py-4">
 
-                  <td>
-                    {customer.location}
-                  </td>
+                      <div className="flex items-center gap-2">
 
-                  <td>
+                        <button
+                          onClick={() =>
+                            handleEdit(customer)
+                          }
+                          className="px-3 py-1.5 rounded-lg text-sm font-medium text-blue-600 hover:bg-blue-50 transition"
+                        >
+                          Edit
+                        </button>
 
-                    <span
-                      className={
-                        customer.status ===
-                        "Active"
-                          ? "status active"
-                          : "status inactive"
-                      }
-                    >
-                      {customer.status}
-                    </span>
+                        <button
+                          onClick={() =>
+                            handleDelete(customer.id)
+                          }
+                          className="px-3 py-1.5 rounded-lg text-sm font-medium text-red-600 hover:bg-red-50 transition"
+                        >
+                          Delete
+                        </button>
 
-                  </td>
+                      </div>
 
-                  <td>
+                    </td>
 
-                    <button
-                      className="action-btn"
-                      onClick={() =>
-                        handleEdit(customer)
-                      }
-                    >
-                      Edit
-                    </button>
+                  </tr>
 
-                    <button
-                      className="delete-btn"
-                      onClick={() =>
-                        handleDelete(customer.id)
-                      }
-                    >
-                      Delete
-                    </button>
+                )
+              )}
 
-                  </td>
+            </tbody>
 
-                </tr>
+          </table>
 
-              )
-            )}
-
-          </tbody>
-
-        </table>
+        </div>
 
 
+        {/* No Customers */}
         {filteredCustomers.length === 0 && (
-          <div className="no-customers">
-            No customers found
+          <div className="flex flex-col items-center justify-center py-16">
+
+            <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mb-3">
+              <Search
+                size={20}
+                className="text-gray-400"
+              />
+            </div>
+
+            <p className="text-sm font-medium text-gray-700">
+              No customers found
+            </p>
+
+            <p className="text-xs text-gray-400 mt-1">
+              Try searching with a different name or email.
+            </p>
+
           </div>
         )}
 
@@ -329,24 +397,32 @@ useEffect(() => {
 
 
       {/* MODAL */}
-
       {showModal && (
 
-        <div className="modal-overlay">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
 
-          <div className="customer-modal">
+          <div className="w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
 
-            <div className="modal-header">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-6 py-5 border-b border-gray-200">
 
-              <h2>
-                {editingCustomer
-                  ? "Edit Customer"
-                  : "Add Customer"}
-              </h2>
+              <div>
+                <h2 className="text-lg font-semibold text-gray-900">
+                  {editingCustomer
+                    ? "Edit Customer"
+                    : "Add Customer"}
+                </h2>
+
+                <p className="text-sm text-gray-500 mt-1">
+                  {editingCustomer
+                    ? "Update customer information"
+                    : "Add a new customer"}
+                </p>
+              </div>
 
               <button
-                className="close-modal"
                 onClick={closeModal}
+                className="w-9 h-9 flex items-center justify-center rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-900 transition"
               >
                 <X size={20} />
               </button>
@@ -354,16 +430,18 @@ useEffect(() => {
             </div>
 
 
+            {/* Form */}
             <form
               onSubmit={handleSubmit}
-              className="customer-form"
+              className="p-6 space-y-5"
             >
 
               {/* NAME */}
+              <div>
 
-              <div className="form-group">
-
-                <label>Name</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Name
+                </label>
 
                 <input
                   type="text"
@@ -372,16 +450,18 @@ useEffect(() => {
                   value={formData.name}
                   onChange={handleChange}
                   required
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-800 outline-none focus:bg-white focus:border-black focus:ring-2 focus:ring-gray-100 transition"
                 />
 
               </div>
 
 
               {/* EMAIL */}
+              <div>
 
-              <div className="form-group">
-
-                <label>Email</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Email
+                </label>
 
                 <input
                   type="email"
@@ -390,16 +470,18 @@ useEffect(() => {
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-800 outline-none focus:bg-white focus:border-black focus:ring-2 focus:ring-gray-100 transition"
                 />
 
               </div>
 
 
               {/* LOCATION */}
+              <div>
 
-              <div className="form-group">
-
-                <label>Location</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Location
+                </label>
 
                 <input
                   type="text"
@@ -408,22 +490,26 @@ useEffect(() => {
                   value={formData.location}
                   onChange={handleChange}
                   required
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-800 outline-none focus:bg-white focus:border-black focus:ring-2 focus:ring-gray-100 transition"
                 />
 
               </div>
 
 
               {/* STATUS */}
+              <div>
 
-              <div className="form-group">
-
-                <label>Status</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Status
+                </label>
 
                 <select
                   name="status"
                   value={formData.status}
                   onChange={handleChange}
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-800 outline-none focus:bg-white focus:border-black focus:ring-2 focus:ring-gray-100 transition"
                 >
+
                   <option value="Active">
                     Active
                   </option>
@@ -431,26 +517,26 @@ useEffect(() => {
                   <option value="Inactive">
                     Inactive
                   </option>
+
                 </select>
 
               </div>
 
 
               {/* BUTTONS */}
-
-              <div className="form-buttons">
+              <div className="flex justify-end gap-3 pt-4 border-t border-gray-100">
 
                 <button
                   type="button"
-                  className="cancel-btn"
                   onClick={closeModal}
+                  className="px-4 py-2.5 rounded-xl border border-gray-200 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition"
                 >
                   Cancel
                 </button>
 
                 <button
                   type="submit"
-                  className="save-btn"
+                  className="px-5 py-2.5 rounded-xl bg-black text-white text-sm font-semibold hover:bg-gray-800 active:scale-95 transition-all shadow-sm"
                 >
                   {editingCustomer
                     ? "Update Customer"

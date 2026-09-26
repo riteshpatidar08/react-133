@@ -26,7 +26,6 @@ const salesData = [
 ];
 
 function SalesChart() {
-
   const [syncing, setSyncing] = useState(false);
 
   function handleSync() {
@@ -38,17 +37,34 @@ function SalesChart() {
   }
 
   return (
-    <div className="sales-card">
+    <div className="w-full bg-white border border-gray-200 rounded-2xl shadow-sm p-6">
 
-      <div className="sales-header">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6">
 
-        <h2>Sales</h2>
+        <div>
+          <h2 className="text-xl font-semibold text-gray-900">
+            Sales
+          </h2>
 
+          <p className="text-sm text-gray-500 mt-1">
+            Monthly sales performance
+          </p>
+        </div>
+
+        {/* Sync Button */}
         <button
-          className="sync-button"
           onClick={handleSync}
+          disabled={syncing}
+          className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 hover:border-gray-300 active:scale-95 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          ↻
+          <span
+            className={`text-lg leading-none ${
+              syncing ? "animate-spin" : ""
+            }`}
+          >
+            ↻
+          </span>
 
           <span>
             {syncing ? "Syncing..." : "Sync"}
@@ -57,13 +73,13 @@ function SalesChart() {
 
       </div>
 
-      <div className="sales-chart">
+      {/* Chart */}
+      <div className="w-full h-[350px]">
 
         <ResponsiveContainer
           width="100%"
           height="100%"
         >
-
           <BarChart
             data={salesData}
             margin={{
@@ -78,6 +94,7 @@ function SalesChart() {
             <CartesianGrid
               strokeDasharray="3 3"
               vertical={false}
+              stroke="#e5e7eb"
             />
 
             <XAxis
@@ -113,6 +130,11 @@ function SalesChart() {
             />
 
             <Tooltip
+              contentStyle={{
+                borderRadius: "10px",
+                border: "1px solid #e5e7eb",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+              }}
               formatter={(value) =>
                 `$${value.toLocaleString()}`
               }
@@ -122,17 +144,33 @@ function SalesChart() {
               dataKey="sales"
               fill="#635bff"
               barSize={34}
+              radius={[5, 5, 0, 0]}
             />
 
             <Bar
               dataKey="previous"
               fill="#d7d5ff"
               barSize={34}
+              radius={[5, 5, 0, 0]}
             />
 
           </BarChart>
-
         </ResponsiveContainer>
+
+      </div>
+
+      {/* Legend */}
+      <div className="flex items-center gap-6 mt-4 text-sm text-gray-500">
+
+        <div className="flex items-center gap-2">
+          <span className="w-3 h-3 rounded-sm bg-[#635bff]"></span>
+          <span>This Year</span>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <span className="w-3 h-3 rounded-sm bg-[#d7d5ff]"></span>
+          <span>Previous Year</span>
+        </div>
 
       </div>
 
