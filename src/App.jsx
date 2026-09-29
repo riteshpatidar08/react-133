@@ -111,6 +111,7 @@ import Notfound from './pages/Notfound';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import Login from './pages/Login';
 import OpenRoutes from './components/OpenRoutes';
+import Tailwindtemplate from './pages/Tailwindtemplate';
 
 function App() {
   const eventsData = [
@@ -132,6 +133,7 @@ function App() {
     <div>
       <Routes>
         {/* open routes goes here  */}
+        <Route path='/tailwind' element={<Tailwindtemplate/>}/>
         <Route element={<OpenRoutes />}>
           <Route path="/login" element={<Login />} />
         </Route>
@@ -162,3 +164,5 @@ export default App;
 // outlet ??
 //programmatic navigation => login => response success => navigate('homepage)
 //protected routes
+
+//NOTE note useref , controlled ,uncontrolled , forwared ref , useReudcer , use clal , use memo , useLayout , use action   

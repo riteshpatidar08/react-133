@@ -1,31 +1,51 @@
-import React, { useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useReducer } from 'react';
 function Homepage() {
-  const navigate = useNavigate();
-  useEffect(() => {
-    const fetchdata = async () => {
-      try {
-        const res = await axios.get(
-          'https://jsonplaceholder.typicode.com/todos'
-        );
-        console.log(res.data);
+  const initialState = { count: 0 ,cart :0};
 
-        // navigate('/dashboard');
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  const countReducer = (state, action) => {
+    if (action.type === 'INCREMENT') {
+      return { count: state.count + 1 };
+    } else if (action.type === 'DECREMENT') {
+      return { count: state.count - 1 };
+    }else if (action.type === 'ADD TO CART') {
+      return {
+        ...state,
+        cart: state.cart + 1
+      };
+    }
 
-    fetchdata();
-  }, []);
+    return state;
+  };
 
-  return <div>
+    
+  
 
-    <button onClick={()=>navigate(-1)}>GO back</button>
-  </div>;
+  
+
+  const [state, dispatch] = useReducer(countReducer, initialState);
+
+  return (
+    <div>
+      {state.count}
+      <button
+        onClick={() => {
+          dispatch({ type: 'INCREMENT' });
+        }}
+      >
+        Increment
+      </button>
+      <h2>Cart: {state.cart}</h2>
+
+      <button
+        onClick={() => {
+          dispatch({ type: 'ADD TO CART' });
+        }}
+      >
+        Add to Cart
+      </button>
+    </div>
+  );
+
 }
-
 export default Homepage;
-
-
