@@ -131,6 +131,8 @@ function App() {
   ];
   return (
     <div>
+
+      <Homepage/>
       <Routes>
         {/* open routes goes here  */}
         <Route path='/tailwind' element={<Tailwindtemplate/>}/>
