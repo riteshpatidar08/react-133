@@ -152,7 +152,7 @@ function Navbar({ onMenuClick }) {
     left-0
     lg:left-[300px]
   "
->
+> 
 
       <div
         className="
