@@ -1,38 +1,32 @@
-import React, { useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useReducer } from 'react';
 function Homepage() {
-  const navigate = useNavigate();
-  useEffect(() => {
-    const fetchdata = async () => {
-      try {
-        const res = await axios.get(
-          'https://jsonplaceholder.typicode.com/todos'
-        );
-        console.log(res.data);
+  const initialState = { count: 0 };
 
-        // navigate('/dashboard');
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  const countReducer = (state, action) => {
+    if (action.type === 'INCREMENT') {
+      return { count: state.count + 1 };
+    } else if (action.type === 'DECREMENT') {
+      return { count: state.count - 1 };
+    }
 
-    fetchdata();
-  }, []);
+    return state;
+  };
 
-  return <div>
+  const [state, dispatch] = useReducer(countReducer, initialState);
 
-    <button className="text-sky-500" onClick={()=>navigate(-1)}>GO back</button>
-  </div>;
+  return (
+    <div>
+      {state.count}
+      <button
+        onClick={() => {
+          dispatch({ type: 'INCREMENT' });
+        }}
+      >
+        Increment
+      </button>
+    </div>
+  );
 }
 
 export default Homepage;
-
-
-
-
-// color properties 
-// background color 
-// padding margin , border border radius 
-// display properties 
-// position properties flex ,grid , responsive antimation
