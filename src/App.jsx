@@ -109,7 +109,9 @@ import Dashboard from './pages/Dashboard.jsx';
 import Setting from './pages/Setting';
 import Overview from './pages/Overview';
 import Integrations from './pages/Integrations';
-
+import Customers from './pages/Customers';
+import Account from './pages/Account';
+import Error from './pages/Error';
 function App() {
   const eventsData = [
     {
@@ -147,7 +149,7 @@ function App() {
   return (
     <div>
       
-      <Navbar/>
+      {/* <Navbar/> */}
       <Routes>
         <Route path="/" element={<Homepage />} />
       
@@ -156,6 +158,9 @@ function App() {
           <Route path="settings" element={<Setting />} />
           <Route path="overview" element={<Overview />} />
           <Route path="integration" element={<Integrations />} />
+          <Route path="customers" element={<Customers />} />
+          <Route path="account" element={<Account />} />
+          <Route path="error" element={<Error />} />
         </Route>
         <Route path="/events" element={<EventsPage events={eventsData} />} />
         <Route
@@ -168,6 +173,8 @@ function App() {
           path="/movies/:title/:id"
           element={<MovieDetail movies={moviesData} />}
         />
+
+
 
       </Routes>
     </div>
