@@ -108,6 +108,7 @@ import Setting from './pages/Setting';
 import Overview from './pages/Overview';
 import Integrations from './pages/Integrations';
 import Contact from "./pages/Contact";
+import Todo from "./pages/Todo";
 
 function App() {
   const eventsData = [
@@ -142,6 +143,7 @@ function App() {
           element={<EventsDetailPage events={eventsData} />}
         />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/todo" element={<Todo />} />
       </Routes>
     </div>
   );
