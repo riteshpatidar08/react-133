@@ -10,7 +10,7 @@ function Homepage() {
       return { count: state.count - 1 };
     }else if (action.type === 'ADD TO CART') {
       return {
-        ...state,
+        
         cart: state.cart + 1
       };
     }
@@ -19,10 +19,6 @@ function Homepage() {
   };
 
     
-  
-
-  
-
   const [state, dispatch] = useReducer(countReducer, initialState);
 
   return (
