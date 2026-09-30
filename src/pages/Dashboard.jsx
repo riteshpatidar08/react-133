@@ -36,12 +36,12 @@ function Dashboard() {
 
   <div className="logo">
     <div className="logo-box">◇</div>
-    <h2>DeviasKit</h2>
+    <h2>Amit's Dashboard</h2>
   </div>
 
   <div className="workspace">
     <span>Workspace</span>
-    <strong>Devias</strong>
+    <strong>Amit</strong>
     <div className="arrows">⌃<br />⌄</div>
   </div>
 
@@ -51,6 +51,11 @@ function Dashboard() {
       <span>◉</span>
       Overview
     </Link>
+
+    <Link to="/dashboard/customers">
+  <span>♧</span>
+  Customers
+</Link>
 
     <Link to="/dashboard/integration">
       <span>⚒</span>
@@ -72,10 +77,7 @@ function Dashboard() {
       Error
     </Link>
 
-    <Link to="/dashboard/customers">
-  <span>♧</span>
-  Customers
-</Link>
+    
 
   </nav>
 

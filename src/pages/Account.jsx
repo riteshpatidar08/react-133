@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 function Account() {
-  const [firstName, setFirstName] = useState('Sofia');
-  const [lastName, setLastName] = useState('Rivers');
-  const [email, setEmail] = useState('sofia@devias.io');
+  const [firstName, setFirstName] = useState('Amit');
+  const [lastName, setLastName] = useState('Vaishnav');
+  const [email, setEmail] = useState('amit@gmail.com');
   const [phone, setPhone] = useState('');
   const [state, setState] = useState('');
   const [city, setCity] = useState('');
@@ -26,13 +26,13 @@ function Account() {
           <div className="profile-info">
 
             <div className="account-avatar">
-              S
+              A
             </div>
 
-            <h2>Sofia Rivers</h2>
+            <h2>Amit Vaishnav</h2>
 
-            <p>Los Angeles USA</p>
-            <p>GTM-7</p>
+            <p>Jaipur</p>
+    
 
           </div>
 
