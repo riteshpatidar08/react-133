@@ -1,193 +1,130 @@
-// // import React, { useEffect, useState } from 'react';
 
-// // function App() {
-// //   const [isVisible, setisVisible] = useState(false);
-// //   return (
-// //     <div>
-// //       {isVisible ? <Navbar /> : <h1>no data</h1>}
+import React, { useReducer, useEffect } from "react";
+import axios from "axios";
 
-// //       <button onClick={() => setisVisible(!isVisible)}>Toggle</button>
-// //     </div>
-// //   );
-// // }
+function Homepage() {
+  // Initial State
+  const initialState = {
+    data: [],
+    loading: false,
+    error: null,
+  };
 
-// // export default App;
+  // Reducer
+  const apiReducer = (state, action) => {
+    if (action.type === "FETCH_LOADING") {
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+    }
 
-// // function Navbar() {
-// //   //function component how we handle component lifeCycle (useEffect mounting [] , updating [name] , unmount => return ()=>{} )
-// //   useEffect(() => {
-// //     console.log('this will run when navbar mount');
-// //     const intervalId = setInterval(() => {
-// //       console.log('this will run in every 1 sec');
-// //     }, 1000);
-// //     return () => {
-// //       clearInterval(intervalId);
-// //     };
-// //   }, []);
-// //   return (
-// //     <header>
-// //       <h1>District</h1>
-// //     </header>
-// //   );
-// // }
+    else if (action.type === "FETCH_SUCCESS") {
+      return {
+        ...state,
+        loading: false,
+        data: action.payload,
+        error: null,
+      };
+    }
 
-// import React, { useState } from 'react';
-// import { NameContext } from './context/NameContext';
-// import { useContext } from 'react';
-// function App() {
-//   // const [name , setName] = useState('REACT')
+    else if (action.type === "FETCH_FAILED") {
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    }
 
-//   return (
-//     <div style={{ border: '5px solid black', padding: '20px' }}>
-//       <ComponentB />
-//       <ComponentC />
-//     </div>
-//   );
-// }
+    return state;
+  };
 
-// export default App;
 
-// function ComponentB() {
-//   console.log('ComponentB is runnning....');
-//   const { name } = useContext(NameContext);
-//   return (
-//     <div
-//       style={{
-//         border: '2px solid blue',
-//         padding: '20px',
-//         marginBottom: '20px',
-//       }}
-//     >
-//       This is component B<h1>Tech:{name}</h1>
-//     </div>
-//   );
-// }
-// function ComponentC() {
-//   console.log('ComponentC is runnning....');
-//   return (
-//     <div style={{ border: '2px solid red', padding: '20px' }}>
-//       <h1>This is component C</h1>
-//       <ComponentD />
-//       <ComponentE />
-//     </div>
-//   );
-// }
-// function ComponentD() {
-//   console.log('ComponentD is runnning....');
-//   return (
-//     <div style={{ border: '2px solid green', padding: '20px' }}>
-//       This is component D
-//     </div>
-//   );
-// }
-// function ComponentE() {
-//   console.log('ComponentE is runnning....');
-//   const { name } = useContext(NameContext);
-//   const { setName } = useContext(NameContext);
-//   const handleNameChange = () => {
-//     setName('Angular');
-//   };
-//   return (
-//     <div style={{ border: '2px solid yellow', padding: '20px' }}>
-//       This is component E<h1>Tech : {name}</h1>
-//       <button onClick={handleNameChange}>Change Name</button>
-//     </div>
-//   );
-// }
+  const [state, dispatch] = useReducer(apiReducer, initialState);
 
-import React from "react";
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+      
+        dispatch({
+          type: "FETCH_LOADING",
+        });
 
-import Navbar from "./components/Navbar";
-import InputSearch from "./components/InputSearch";
-import MovieGrid from "./components/MovieGrid";
+        
+        const res = await axios.get(
+          "https://jsonplaceholder.typicode.com/posts"
+        );
 
-import { Route, Routes } from "react-router-dom";
+        
+        dispatch({
+          type: "FETCH_SUCCESS", payload: res.data,
+        });
 
-import Homepage from "./pages/Homepage";
-import EventsPage from "./pages/EventsPage";
-import EventsDetailPage from "./pages/EventsDetailPage";
+      } catch (error) {
+        dispatch({
+          type: "FETCH_FAILED",
+          payload: error.message,
+        });
+      }
+    };
 
-import Dashboard from "./pages/dashboard";
-import Setting from "./pages/Setting";
-import Overview from "./pages/Overview";
-import Integrations from "./pages/Integrations";
+    fetchData();
+  }, []);
 
-import Notfound from "./pages/Notfound";
-
-import ProtectedRoutes from "./components/ProtectedRoutes";
-import OpenRoutes from "./components/OpenRoutes";
-
-import Login from "./pages/Login";
-import Tailwindtemplate from "./pages/Tailwindtemplate";
-
-function App() {
-  const eventsData = [
-    {
-      id: 1,
-      title: "Morning Yoga",
-      location: "Jaipur",
-      startData: "23-09-2026",
-    },
-    {
-      id: 2,
-      title: "Marathon",
-      location: "Jaipur",
-      startData: "24-09-2026",
-    },
-    {
-      id: 3,
-      title: "Diwali Party",
-      location: "Jaipur",
-      startData: "6-11-2026",
-    },
-  ];
-
+  
   return (
     <div>
-      <Routes>
 
-        {/* Open Routes */}
+      
+      {state.loading && (
+        <p>Loading...</p>
+      )}
 
-        <Route
-          path="/tailwind"
-          element={<Tailwindtemplate />}
-        />
+      {/* Error */}
+      {state.error && !state.loading && (
+        <div>
+          <h2>Something went wrong</h2>
+          <p>{state.error}</p>
+        </div>
+      )}
 
-        <Route element={<OpenRoutes />}>
-          <Route path="/login" element={<Login />} />
-        </Route>
+      
+      {!state.loading &&
+        !state.error &&
+        state.data.length > 0 && (
+          <div>
 
-        {/* Protected Routes */}
+            {/* <p>
+              Total Posts: {state.data.length}
+            </p>
 
-        <Route element={<ProtectedRoutes />}>
-          <Route path="/" element={<Homepage />} />
+            {state.data.map((post) => (
+              <div key={post.id}>
+                <h3>
+                  {post.id}. {post.title}
+                </h3>
 
-          <Route path="/dashboard" element={<Dashboard />}>
-            <Route index element={<Overview />} />
-            <Route path="settings" element={<Setting />} />
-            <Route path="overview" element={<Overview />} />
-            <Route path="integration" element={<Integrations />} />
-          </Route>
+                <p>{post.body}</p>
 
-          <Route
-            path="/events"
-            element={<EventsPage events={eventsData} />}
-          />
+                <p>User ID: {post.userId}</p>
 
-          <Route
-            path="/events/:title/:id"
-            element={<EventsDetailPage events={eventsData} />}
-          />
-        </Route>
+                <hr />
+              </div>
+            ))} */}
 
-        {/* 404 Page */}
+            {JSON.stringify(state.data)}
+          </div>
+        )}
 
-        <Route path="*" element={<Notfound />} />
-
-      </Routes>
+      {!state.loading &&
+        !state.error &&
+        state.data.length === 0 && (
+          <p>No posts available.</p>
+        )}
     </div>
   );
 }
 
-export default App;
+export default Homepage;
 
