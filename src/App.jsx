@@ -110,43 +110,55 @@ import Integrations from './pages/Integrations';
 import Contact from "./pages/Contact";
 import Todo from "./pages/Todo";
 import LikeDislike from "./pages/LikeDislike";
+import AgGrid from "./AgGrid";
+
+// function App() {
+//   const eventsData = [
+//     {
+//       id: 1,
+//       title: 'Morning Yoga',
+//       location: 'Jaipur',
+//       startData: '23-09-2026',
+//     },
+//     { id: 2, title: 'Marathon', location: 'Jaipur', startData: '24-09-2026' },
+//     {
+//       id: 3,
+//       title: 'Diwali Party',
+//       location: 'Jaipur',
+//       startData: '6-11-2026',
+//     },
+//   ];
+//   return (
+//     <div>
+//       <Routes>
+//         <Route path="/" element={<Homepage />} />
+      
+//         <Route path="/dashboard" element={<Dashboard />}>
+//         <Route index element={<Overview/>}/>
+//           <Route path="settings" element={<Setting />} />
+//           <Route path="overview" element={<Overview />} />
+//           <Route path="integration" element={<Integrations />} />
+//         </Route>
+//         <Route path="/events" element={<EventsPage events={eventsData} />} />
+//         <Route
+//           path="/events/:title/:id"
+//           element={<EventsDetailPage events={eventsData} />}
+//         />
+//         <Route path="/contact" element={<Contact />} />
+//         <Route path="/todo" element={<Todo />} />
+//         <Route path="/like" element={<LikeDislike/>}/>
+//       </Routes>
+//     </div>
+//   );
+// }
+
+
+// export default App;
 
 function App() {
-  const eventsData = [
-    {
-      id: 1,
-      title: 'Morning Yoga',
-      location: 'Jaipur',
-      startData: '23-09-2026',
-    },
-    { id: 2, title: 'Marathon', location: 'Jaipur', startData: '24-09-2026' },
-    {
-      id: 3,
-      title: 'Diwali Party',
-      location: 'Jaipur',
-      startData: '6-11-2026',
-    },
-  ];
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-      
-        <Route path="/dashboard" element={<Dashboard />}>
-        <Route index element={<Overview/>}/>
-          <Route path="settings" element={<Setting />} />
-          <Route path="overview" element={<Overview />} />
-          <Route path="integration" element={<Integrations />} />
-        </Route>
-        <Route path="/events" element={<EventsPage events={eventsData} />} />
-        <Route
-          path="/events/:title/:id"
-          element={<EventsDetailPage events={eventsData} />}
-        />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/todo" element={<Todo />} />
-        <Route path="/like" element={<LikeDislike/>}/>
-      </Routes>
+      <AgGrid />
     </div>
   );
 }
