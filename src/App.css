@@ -22,3 +22,10 @@
   color : blue
 }
 
+.like {
+  color: black;
+}
+
+.like.active {
+  color: blue;
+}
