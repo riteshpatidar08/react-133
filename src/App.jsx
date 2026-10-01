@@ -109,6 +109,7 @@ import Overview from './pages/Overview';
 import Integrations from './pages/Integrations';
 import Contact from "./pages/Contact";
 import Todo from "./pages/Todo";
+import LikeDislike from "./pages/LikeDislike";
 
 function App() {
   const eventsData = [
@@ -144,6 +145,7 @@ function App() {
         />
         <Route path="/contact" element={<Contact />} />
         <Route path="/todo" element={<Todo />} />
+        <Route path="/like" element={<LikeDislike/>}/>
       </Routes>
     </div>
   );
