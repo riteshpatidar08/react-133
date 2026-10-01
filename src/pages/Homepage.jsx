@@ -44,7 +44,13 @@
 import React from 'react';
 import { useReducer, useEffect } from 'react';
 import axios from 'axios';
+import useFetch from '../hooks/useFetch';
 function Homepage() {
+
+
+  const [data , isLoading , error] = useFetch('https://dummyjson.com/products')
+console.log(data)
+
   const initialState = { data: [], loading: false, error: null };
 
   const apiReducer = (state, action) => {
@@ -67,6 +73,7 @@ function Homepage() {
       try {
         // --data fetching will start here
         dispatch({ type: 'FETCH_LOADING' });
+
         const res = await axios.get(
           'https://jsonplaceholder.typicode.com/posts'
         );
@@ -81,18 +88,27 @@ function Homepage() {
     fetchData();
   }, []);
 
-  return <div>
-
-    {JSON.stringify(state.data)}
-  </div>;
+  return <div>{JSON.stringify(state.data)}</div>;
 }
 
 export default Homepage;
 
 //api data , loading => true/false , error
-
 // starting point ---------- loading : true
-
 // data received ------ data : data , loading ; false
-
 // erro received ---- erorr : erorr , laoding : flase
+// loading -> ui => spinner LoadingScreen
+// error => ui => error =< errorSCreen
+// like and dislike using useReducer 
+
+//What is reducer function  ?  action  ? dispatch()
+
+//NOTE useState;
+//NOTE useEffect;
+//NOTE useContext; 
+//NOTE useReducer;
+// Custom Hooks : 
+
+// multiple component => users page / product page / orders page 
+
+// axios.get(url)  //useFetch . useLocalStorage 
