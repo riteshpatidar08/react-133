@@ -1,4 +1,7 @@
-import React, { useReducer } from "react";
+import React  from "react";
+import { useReducer } from "react";
+
+import { ThumbsUp, ThumbsDown } from "lucide-react";
 
 function LikeDislike() {
 
@@ -35,10 +38,12 @@ function LikeDislike() {
       <h2>Dislike: {state.dislike}</h2>
 
       <button onClick={() => dispatch({ type: "LIKE" })}>
+        <ThumbsUp />
          Like
       </button>
 
       <button onClick={() => dispatch({ type: "DISLIKE" })}>
+        <ThumbsDown />
          Dislike
       </button>
 
