@@ -112,6 +112,7 @@ import Integrations from './pages/Integrations';
 import Customers from './pages/Customers';
 import Account from './pages/Account';
 import Error from './pages/Error';
+import './test.jsx'
 function App() {
   const eventsData = [
     {
