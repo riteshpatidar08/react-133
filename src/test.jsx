@@ -19,8 +19,8 @@
 
 // Answer no 4 => when we call a setter fn like setName then react does not update the variable. react re render the component
     
-// Answer no 5 => 
-    
+// Answer no 5 =>  we send req to api , at req time react show loading when data fetching success on the ui we show data  and if the url or any function syntax etc are wrong we show error on the screen if data fetching complete we stop loading
+// req->loading->success/error
 
     
 // Answer no 6=> when we have multiple states and complex state to change we use reucer hook and when we have a single state to change we use useState because usesate is immutable we upadte i through setter function
