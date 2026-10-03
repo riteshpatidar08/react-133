@@ -1,39 +1,52 @@
-import React from "react";
+import React from 'react';
 
 function TailwindTemplate() {
   return (
     <div>
-      {/* Header */} 
+      {/* Header */}
       <header className="bg-black border-b border-zinc-800 sticky top-0  justify-around h-20 items-center flex">
         <div className="flex items-center gap-5 justify-center">
-        <h1 className="text-white text-3xl font-bold">heroui</h1>
-        <p className="text-gray-300 px-2 py-1 rounded-xl bg-zinc-700 text-[10px] ">Build better</p>
+          <h1 className="text-white text-3xl font-bold">heroui</h1>
+          <p className="text-gray-300 px-2 py-1 rounded-xl bg-zinc-700 text-[10px] ">
+            Build better
+          </p>
         </div>
         <nav className="flex gap-4 text-sm font-medium">
-        <a href="/">Home</a>
-        <a href="/">Products</a>
-        <a href="/">Services</a>
-        <a href="/">About Us</a>
-        <a href="/">Contact</a>
-      </nav>
+          <a href="/">Home</a>
+          <a href="/">Products</a>
+          <a href="/">Services</a>
+          <a href="/">About Us</a>
+          <a href="/">Contact</a>
+        </nav>
 
-      <button className="text-gray-400 border border-gray-700 rounded-4xl px-10 py-2">Login</button>
+        <button className="text-gray-400 px-10 py-2 border border-gray-700 rounded-4xl ">
+          Login
+        </button>
       </header>
 
       {/* Navigation */}
-     
 
       <main>
         {/* Hero Section */}
-        <section className="bg-black h-screen">
-          <span className='text-white text-2xl  tracking-wide font-semibold'>Welcome to <span className="text-5xl font-bold text-pink-400">heroui</span></span>
-          <h1 className="text-white font-medium text-4xl">Build Fast. Build Beautiful. Build Better.</h1>
-          <p className="text-sm font-medium text-zinc-600">
-            We help startups and businesses create modern, scalable,
-            high-performance digital products that customers love.
-          </p>
+        <section className="bg-black h-screen flex justify-between">
+          <span className="text-white text-2xl  tracking-wide font-semibold">
+            Welcome to{' '}
+            <span className="text-5xl font-bold text-pink-400">heroui</span>
+          </span>
+          <div>
+            {' '}
+            <h1 className="text-white font-medium text-4xl">
+              Build Fast. Build Beautiful. Build Better.
+            </h1>
+            <p className="text-sm font-medium text-zinc-600">
+              We help startups and businesses create modern, scalable,
+              high-performance digital products that customers love.
+            </p>
+          </div>
 
-          <button>Get Started</button>
+          <button className="px-8 py-2 h-10 rounded-2xl te font-medium text-black bg-pink-400">
+            Get Started
+          </button>
           <button>View Our Work</button>
         </section>
 
@@ -50,8 +63,8 @@ function TailwindTemplate() {
 
           <p>
             Technology is transforming the way businesses operate. Modern
-            applications need to be fast, accessible, responsive, and easy
-            to use.
+            applications need to be fast, accessible, responsive, and easy to
+            use.
           </p>
 
           <strong>Important information appears here.</strong>
@@ -107,16 +120,14 @@ function TailwindTemplate() {
         {/* Services */}
         <section>
           <h2>Our Services</h2>
-          <p>
-            We provide end-to-end digital solutions for growing businesses.
-          </p>
+          <p>We provide end-to-end digital solutions for growing businesses.</p>
 
           <div>
             <article>
               <h3>Web Development</h3>
               <p>
-                We build fast, responsive, and scalable websites using
-                modern technologies like React, Next.js, and Node.js.
+                We build fast, responsive, and scalable websites using modern
+                technologies like React, Next.js, and Node.js.
               </p>
               <button>Learn More</button>
             </article>
@@ -124,8 +135,8 @@ function TailwindTemplate() {
             <article>
               <h3>UI/UX Design</h3>
               <p>
-                Our designers create intuitive and beautiful interfaces
-                that provide a great experience across all devices.
+                Our designers create intuitive and beautiful interfaces that
+                provide a great experience across all devices.
               </p>
               <button>Learn More</button>
             </article>
@@ -133,8 +144,8 @@ function TailwindTemplate() {
             <article>
               <h3>Mobile Development</h3>
               <p>
-                Build powerful mobile applications for Android and iOS
-                using modern cross-platform technologies.
+                Build powerful mobile applications for Android and iOS using
+                modern cross-platform technologies.
               </p>
               <button>Learn More</button>
             </article>
@@ -196,8 +207,8 @@ function TailwindTemplate() {
             <article>
               <h3>FinancePro</h3>
               <p>
-                A personal finance application for tracking expenses,
-                budgets, and investments.
+                A personal finance application for tracking expenses, budgets,
+                and investments.
               </p>
               <span>Next.js</span>
               <span>TypeScript</span>
@@ -207,8 +218,8 @@ function TailwindTemplate() {
             <article>
               <h3>HealthTrack</h3>
               <p>
-                A healthcare dashboard for monitoring appointments,
-                patients, and medical records.
+                A healthcare dashboard for monitoring appointments, patients,
+                and medical records.
               </p>
               <span>React</span>
               <span>Express</span>
@@ -236,29 +247,17 @@ function TailwindTemplate() {
           <form>
             <div>
               <label htmlFor="name">Full Name</label>
-              <input
-                id="name"
-                type="text"
-                placeholder="John Smith"
-              />
+              <input id="name" type="text" placeholder="John Smith" />
             </div>
 
             <div>
               <label htmlFor="email">Email Address</label>
-              <input
-                id="email"
-                type="email"
-                placeholder="john@example.com"
-              />
+              <input id="email" type="email" placeholder="john@example.com" />
             </div>
 
             <div>
               <label htmlFor="phone">Phone Number</label>
-              <input
-                id="phone"
-                type="tel"
-                placeholder="+91 98765 43210"
-              />
+              <input id="phone" type="tel" placeholder="+91 98765 43210" />
             </div>
 
             <div>
@@ -277,10 +276,7 @@ function TailwindTemplate() {
             <div>
               <label htmlFor="message">Message</label>
 
-              <textarea
-                id="message"
-                placeholder="Tell us how we can help..."
-              />
+              <textarea id="message" placeholder="Tell us how we can help..." />
             </div>
 
             <label>
@@ -291,20 +287,12 @@ function TailwindTemplate() {
             <p>Preferred contact method:</p>
 
             <label>
-              <input
-                type="radio"
-                name="contact"
-                value="email"
-              />
+              <input type="radio" name="contact" value="email" />
               Email
             </label>
 
             <label>
-              <input
-                type="radio"
-                name="contact"
-                value="phone"
-              />
+              <input type="radio" name="contact" value="phone" />
               Phone
             </label>
 
@@ -322,8 +310,8 @@ function TailwindTemplate() {
             <article>
               <h3>Pro Laptop X1</h3>
               <p>
-                High-performance laptop designed for developers and
-                creative professionals.
+                High-performance laptop designed for developers and creative
+                professionals.
               </p>
               <strong>$1,299</strong>
               <p>⭐ 4.8/5 (245 reviews)</p>
@@ -333,8 +321,8 @@ function TailwindTemplate() {
             <article>
               <h3>Wireless Headphones</h3>
               <p>
-                Premium noise-cancelling headphones with up to 40 hours
-                of battery life.
+                Premium noise-cancelling headphones with up to 40 hours of
+                battery life.
               </p>
               <strong>$199</strong>
               <p>⭐ 4.6/5 (1,120 reviews)</p>
@@ -344,8 +332,8 @@ function TailwindTemplate() {
             <article>
               <h3>Smart Watch Pro</h3>
               <p>
-                Track your fitness, monitor your activity, and stay
-                connected throughout the day.
+                Track your fitness, monitor your activity, and stay connected
+                throughout the day.
               </p>
               <strong>$249</strong>
               <p>⭐ 4.7/5 (890 reviews)</p>
@@ -480,9 +468,7 @@ function TailwindTemplate() {
               src="https://images.unsplash.com/photo-1497366811353-6870744d04b2"
               alt="Modern office workspace"
             />
-            <figcaption>
-              Our modern workspace in Bangalore, India.
-            </figcaption>
+            <figcaption>Our modern workspace in Bangalore, India.</figcaption>
           </figure>
         </section>
 
@@ -492,35 +478,29 @@ function TailwindTemplate() {
 
           <article>
             <blockquote>
-              "TechNova transformed our outdated platform into a modern
-              product that our customers genuinely enjoy using."
+              "TechNova transformed our outdated platform into a modern product
+              that our customers genuinely enjoy using."
             </blockquote>
 
-            <p>
-              — Ankit Mehta, Founder at FinFlow
-            </p>
+            <p>— Ankit Mehta, Founder at FinFlow</p>
           </article>
 
           <article>
             <blockquote>
-              "The team was professional, responsive, and delivered
-              everything on schedule."
+              "The team was professional, responsive, and delivered everything
+              on schedule."
             </blockquote>
 
-            <p>
-              — Jessica Miller, CEO at MarketHub
-            </p>
+            <p>— Jessica Miller, CEO at MarketHub</p>
           </article>
 
           <article>
             <blockquote>
-              "Our conversion rate increased significantly after
-              launching the new website."
+              "Our conversion rate increased significantly after launching the
+              new website."
             </blockquote>
 
-            <p>
-              — Arjun Kapoor, Director at ShopEasy
-            </p>
+            <p>— Arjun Kapoor, Director at ShopEasy</p>
           </article>
         </section>
 
@@ -531,24 +511,24 @@ function TailwindTemplate() {
           <details>
             <summary>How long does a project take?</summary>
             <p>
-              Most projects take between 4 and 12 weeks depending on
-              their complexity and requirements.
+              Most projects take between 4 and 12 weeks depending on their
+              complexity and requirements.
             </p>
           </details>
 
           <details>
             <summary>Do you provide maintenance?</summary>
             <p>
-              Yes. We provide ongoing maintenance, monitoring, security
-              updates, and feature development.
+              Yes. We provide ongoing maintenance, monitoring, security updates,
+              and feature development.
             </p>
           </details>
 
           <details>
             <summary>Do you work with startups?</summary>
             <p>
-              Yes. We work with startups, small businesses, and
-              established companies.
+              Yes. We work with startups, small businesses, and established
+              companies.
             </p>
           </details>
         </section>
@@ -637,9 +617,7 @@ function TailwindTemplate() {
         <section>
           <h2>Ready to Build Something Great?</h2>
 
-          <p>
-            Let's turn your idea into a powerful digital product.
-          </p>
+          <p>Let's turn your idea into a powerful digital product.</p>
 
           <button>Start a Project</button>
         </section>
@@ -650,8 +628,7 @@ function TailwindTemplate() {
         <h2>TechNova</h2>
 
         <p>
-          Building modern digital experiences for businesses around
-          the world.
+          Building modern digital experiences for businesses around the world.
         </p>
 
         <div>
