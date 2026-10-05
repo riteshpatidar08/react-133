@@ -1,7 +1,7 @@
 ANswer 1:-
 Child props:- child props is a parent to child thow data pass
 
-answer 2:- lifting := one and two componet in data requirment this is parent throw data pass
+answer 2:- lifting := one and two component in data requirment this is parent throw data pass
 
 answer 3 update satate :- data update the change means jsx , props, etc to page re-render in the data update
 

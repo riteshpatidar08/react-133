@@ -176,30 +176,20 @@ function App() {
 
   
   const reducer = (state, action) => {
-    switch (action.type) {
-      case "FETCH_LOADING":
-        return {
-          ...state,
-          loading: true,
-          error: null,
+    if(action.type==="FETCH_LOADING") {
+        return { ...state,loading: true,error: null,
         };
 
-      case "FETCH_SUCCESS":
+      else if (action.type==="FETCH_SUCCESS"){
         return {
           ...state,
           loading: false,
           data: action.payload,
           error: null,
-        };
+        };}
 
-      case "FETCH_ERROR":
-        return {
-          ...state,
-          loading: false,
-          error: action.payload,
-        };
+      
 
-      default:
         return state;
     }
   };
@@ -247,9 +237,6 @@ function App() {
     return <h2>Loading...</h2>;
   }
 
-  if (state.error) {
-    return <h2>Error: {state.error}</h2>;
-  }
 
   return (
     <div>
@@ -258,7 +245,7 @@ function App() {
       {state.data.map((product) => (
         <div key={product.id}>
           <h2>{product.title}</h2>
-          <p>Price: ${product.price}</p>
+          <p>Price: {product.price}</p>
         </div>
       ))}
     </div>
