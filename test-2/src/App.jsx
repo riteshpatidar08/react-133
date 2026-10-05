@@ -178,7 +178,7 @@ function App() {
   const reducer = (state, action) => {
     if(action.type==="FETCH_LOADING") {
         return { ...state,loading: true,error: null,
-        };
+        };}
 
       else if (action.type==="FETCH_SUCCESS"){
         return {
@@ -250,6 +250,6 @@ function App() {
       ))}
     </div>
   );
-}
+
 
 export default App;
