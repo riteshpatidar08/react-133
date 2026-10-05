@@ -143,7 +143,6 @@ function App() {
     <div>
       <Routes>
 
-        {/* Open Routes */}
         <Route element={<OpenRoutes />}>
           <Route path="/login" element={<Login />} />
         </Route>
