@@ -19,3 +19,10 @@ export default defineConfig([
     },
   },
 ])
+
+
+console.log("my fisrt project ");
+
+console.log("vite");
+
+

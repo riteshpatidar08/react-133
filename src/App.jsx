@@ -107,6 +107,7 @@ import Dashboard from './pages/dashboard';
 import Setting from './pages/Setting';
 import Overview from './pages/Overview';
 import Integrations from './pages/Integrations';
+
 import Contact from "./pages/Contact";
 import Todo from "./pages/Todo";
 import LikeDislike from "./pages/LikeDislike";
@@ -155,12 +156,54 @@ import AgGrid from "./AgGrid";
 
 // export default App;
 
+import Notfound from './pages/Notfound';
+import ProtectedRoutes from './components/ProtectedRoutes';
+import Login from './pages/Login';
+import OpenRoutes from './components/OpenRoutes';
+import Tailwindtemplate from './pages/Tailwindtemplate';
+
 function App() {
   return (
     <div>
+
       <AgGrid />
+
+      <Routes>
+        {/* open routes goes here  */}
+        <Route path='/tailwind' element={<Tailwindtemplate/>}/>
+        <Route element={<OpenRoutes />}>
+          <Route path="/login" element={<Login />} />
+        </Route>
+
+        {/* protected routes goes here  */}
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route index element={<Overview />} />
+            <Route path="settings" element={<Setting />} />
+            <Route path="overview" element={<Overview />} />
+            <Route path="integration" element={<Integrations />} />
+          </Route>
+          <Route path="/events" element={<EventsPage events={eventsData} />} />
+          <Route
+            path="/events/:title/:id"
+            element={<EventsDetailPage events={eventsData} />}
+          />
+        </Route>
+        <Route path="*" element={<Notfound />} />
+      </Routes>
+
     </div>
   );
 }
 
+
 export default App;
+
+// export default App;
+
+// outlet ??
+//programmatic navigation => login => response success => navigate('homepage)
+//protected routes
+
+//NOTE note useref , controlled ,uncontrolled , forwared ref , useReudcer , use clal , use memo , useLayout , use action   
