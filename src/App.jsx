@@ -111,7 +111,7 @@ import Integrations from './pages/Integrations';
 import Contact from "./pages/Contact";
 import Todo from "./pages/Todo";
 import LikeDislike from "./pages/LikeDislike";
-import AgGrid from "./AgGrid";
+
 
 // function App() {
 //   const eventsData = [
@@ -162,43 +162,43 @@ import Login from './pages/Login';
 import OpenRoutes from './components/OpenRoutes';
 import Tailwindtemplate from './pages/Tailwindtemplate';
 
-function App() {
-  return (
-    <div>
+// function App() {
+//   return (
+//     <div>
 
-      <AgGrid />
+//       <AgGrid />
 
-      <Routes>
-        {/* open routes goes here  */}
-        <Route path='/tailwind' element={<Tailwindtemplate/>}/>
-        <Route element={<OpenRoutes />}>
-          <Route path="/login" element={<Login />} />
-        </Route>
+//       <Routes>
+//         {/* open routes goes here  */}
+//         <Route path='/tailwind' element={<Tailwindtemplate/>}/>
+//         <Route element={<OpenRoutes />}>
+//           <Route path="/login" element={<Login />} />
+//         </Route>
 
-        {/* protected routes goes here  */}
-        <Route element={<ProtectedRoutes />}>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/dashboard" element={<Dashboard />}>
-            <Route index element={<Overview />} />
-            <Route path="settings" element={<Setting />} />
-            <Route path="overview" element={<Overview />} />
-            <Route path="integration" element={<Integrations />} />
-          </Route>
-          <Route path="/events" element={<EventsPage events={eventsData} />} />
-          <Route
-            path="/events/:title/:id"
-            element={<EventsDetailPage events={eventsData} />}
-          />
-        </Route>
-        <Route path="*" element={<Notfound />} />
-      </Routes>
+//         {/* protected routes goes here  */}
+//         <Route element={<ProtectedRoutes />}>
+//           <Route path="/" element={<Homepage />} />
+//           <Route path="/dashboard" element={<Dashboard />}>
+//             <Route index element={<Overview />} />
+//             <Route path="settings" element={<Setting />} />
+//             <Route path="overview" element={<Overview />} />
+//             <Route path="integration" element={<Integrations />} />
+//           </Route>
+//           <Route path="/events" element={<EventsPage events={eventsData} />} />
+//           <Route
+//             path="/events/:title/:id"
+//             element={<EventsDetailPage events={eventsData} />}
+//           />
+//         </Route>
+//         <Route path="*" element={<Notfound />} />
+//       </Routes>
 
-    </div>
-  );
-}
+//     </div>
+//   );
+// }
 
 
-export default App;
+// export default App;
 
 // export default App;
 
@@ -207,3 +207,41 @@ export default App;
 //protected routes
 
 //NOTE note useref , controlled ,uncontrolled , forwared ref , useReudcer , use clal , use memo , useLayout , use action   
+
+import { useState } from "react";
+
+function App() {
+  const [photo, setPhoto] = useState("");
+
+  const getRandomPhoto = async () => {
+    const response = await fetch(
+      "https://api.unsplash.com/photos/random?client_id=eFF55EI-a7bNgDpYDuJRSw7ct1V_2fiZ_A0XiLtJNlk"
+    );
+
+    const data = await response.json();
+
+    console.log(data)
+
+    setPhoto(data.urls.regular);
+  };
+
+  return (
+    <div>
+      <h1>Random Photo Generator</h1>
+
+      <button onClick={getRandomPhoto}>
+        Generate Random Photo
+      </button>
+
+      {photo && (
+        <img
+          src={photo}
+          alt="Random"
+          width="500"
+        />
+      )}
+    </div>
+  );
+}
+
+export default App;

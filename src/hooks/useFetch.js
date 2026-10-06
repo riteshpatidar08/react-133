@@ -28,4 +28,3 @@ function useFetch(url) {
 //custom hook  use kiya hain kya
 // custom hooks ?
 export default useFetch ;
-l 
