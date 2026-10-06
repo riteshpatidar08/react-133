@@ -3,7 +3,7 @@
 // example :  <div>
 // <h1>hello<h1/>
 // <div/>
-//  here div is parent tag and h1 is child prop 
+//  here div is parent  tag and h1 is child prop 
 
 
 // Answer no 3: becuase state variables are immutable so we didnt change the states
