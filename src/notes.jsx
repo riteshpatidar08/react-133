@@ -261,3 +261,8 @@
 //NOTE useEffect handle the component sideEffects(dataFetching , direct dom manipulation , timers);
 //NOTE Jsx , Components , Jsx vs Html , What is react , What is single page application , Event Handling , Form Handling , use-state , List-Rendering , Conditional-Rendering....
 //NOTE Mini project => data fetching pro , todo list , tree like folder structure , what is hooks ?? hooks are the functions which allow us to use or hook into react features..
+//NOTE Todo list crud  Operation
+//NOTE data fetching (useEffect) + list rendering + handling loding state , errror state , data 
+//NOTE products => search (debouce pending) /pagination  / query params backend q=batman&page=2
+//NOTE  tree like folder structure
+//NOTE dynamic form builder =>  

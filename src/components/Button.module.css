@@ -1,0 +1,15 @@
+.btn {
+    padding : 10px 40px ;
+    background-color: red;
+    color : white
+}
+
+
+
+
+/* unsplash developers => account => api key => 
+generate random photo => ['animals' , 'food'  , 'nature']
+
+1 => food => query
+
+q=query */
