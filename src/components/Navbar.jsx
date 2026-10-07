@@ -1,9 +1,11 @@
 import { useContext } from 'react';
 import { MovieContext } from '../context/MovieContext';
 import { Link, NavLink } from 'react-router-dom';
+import styles from '../components/Button.module.css'
 import './../styles/Navbar.css';
 import './../styles/new.css';
 const Navbar = () => {
+  console.log(styles)
   const { totalResults } = useContext(MovieContext);
 
   return (
@@ -37,7 +39,7 @@ const Navbar = () => {
 
       <div className="nav-actions">
         <p className="results">{totalResults} Movies</p>
-        <button className="signin-btn">Sign in</button>
+        <button className={`${styles.btn}`}>Sign in</button>
       </div>
     </header>
   );
