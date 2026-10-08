@@ -45,11 +45,17 @@ import React from 'react';
 import { useReducer, useEffect } from 'react';
 import axios from 'axios';
 import useFetch from '../hooks/useFetch';
+import useLocalStorage from '../hooks/useLocalStorage';
 function Homepage() {
-
-
-  const [data , isLoading , error] = useFetch('https://dummyjson.com/products')
-console.log(data)
+  const [setValue, storedValue, getValue] = useLocalStorage('products', {
+    name: 'tv',
+    price: 200,
+  });
+  // setValue();
+  getValue();
+  console.log(storedValue);
+  const [data, isLoading, error] = useFetch('https://dummyjson.com/products');
+  console.log(data);
 
   const initialState = { data: [], loading: false, error: null };
 
@@ -99,16 +105,16 @@ export default Homepage;
 // erro received ---- erorr : erorr , laoding : flase
 // loading -> ui => spinner LoadingScreen
 // error => ui => error =< errorSCreen
-// like and dislike using useReducer 
+// like and dislike using useReducer
 
 //What is reducer function  ?  action  ? dispatch()
 
 //NOTE useState;
 //NOTE useEffect;
-//NOTE useContext; 
+//NOTE useContext;
 //NOTE useReducer;
-// Custom Hooks : 
+// Custom Hooks :
 
-// multiple component => users page / product page / orders page 
+// multiple component => users page / product page / orders page
 
-// axios.get(url)  //useFetch . useLocalStorage 
+// axios.get(url)  //useFetch . useLocalStorage
